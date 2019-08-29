@@ -50,7 +50,7 @@
 % smaller than 5cm (the original size); we will check this
 % in the camera-ready version and ask you to change it back.
 
-\newcommand\BibTeX{B\textsc{ib}\TeX}
+
 
 \title{Exploring Lattice-based Models of Relevance in Dialogue for Questions and Implicatures}
 
@@ -58,7 +58,7 @@
   $^{1}$Cognitive Science Group, $^{2}$Theory Group\\
   School of Electronic Engineering and Computer Science \\
   Queen Mary University of London\\
-   \email{\{j.hough,a.lewis-smith\}@qmul.ac.uk}}
+   \texttt{\{j.hough,a.lewis-smith\}@qmul.ac.uk}}
 
 
   
@@ -66,9 +66,10 @@
 
 
 \begin{document}
+\sloppy
 \maketitle
 \begin{abstract}
-  We present in-progress work on modelling relevance in dialogue for questions and implicatures, setting out a programme of work on reducing the redundancy which classical logic introduces into proofs. To do this we firstly propose the use of relevance logics, then set out a lattice-theoretic generalisation of Knuth's and Hough and Purver's models of questions and answers. We suggest that by slightly modifying the underlying algebra, we can obtain formally adequate structures for Belnap's First-degree Entailment, a relevance logic.
+We present work in-progress  on modelling relevance in dialogue for questions and implicatures, setting out a formal programme of work on reducing the redundancy which classical logic introduces into proofs. To do this we firstly propose the use of relevance logics, then set out a lattice-theoretic generalisation of Knuth's and Hough and Purver's models of questions and answers to achieve Belnap's First-degree Entailment.
 \end{abstract}
 
 %\section{Introduction}
@@ -97,11 +98,11 @@
 %  Pattern Recognition}.
 
 \section{Introduction}
-Formalizing what consists of a relevant contribution in a dialogue and particularly what constitutes a relevant answer to a question is now a classical problem for formal dialogue modelling. It has enjoyed a range of existing major treatments, clearly defined as a formal challenge from \newcite{Grice1975} onwards and made into a sub-discipline of pragmatics with Relevance Theory \cite{SperberWilson1986}.
+Formalizing what a relevant contribution consists of in a dialogue and particularly what constitutes a relevant answer to a question is now a classical problem for formal dialogue modelling. It has enjoyed a range of existing major treatments, clearly defined as a formal challenge from \newcite{Grice1975} onwards and made into a sub-discipline of pragmatics with Relevance Theory \cite{SperberWilson1986}.
 
-Relevance was born out of Grice's original theory of implicature, where speakers implicate hidden meaning which hearers can make sense of as in (\ref{eg:griceparty}) from \cite{Davis2014implicature}.
+Relevance was born out of Grice's original theory of \textit{implicature}, where speakers implicate hidden meaning which hearers can make sense of as in (\ref{eg:griceparty}) from \cite{Davis2014implicature}.
 
-
+\vspace*{-0.35cm}
 \begin{equation}
 \label{eg:griceparty}
 \text{
@@ -111,10 +112,14 @@ Relevance was born out of Grice's original theory of implicature, where speakers
 \end{tabular}
 }
 \end{equation}
+\vspace*{-0.35cm}
 
-While a literal interpretation of Barb's contribution would not permit it to be judged a relevant answer to Alan's question, the hidden meaning that can be inferred makes this possible. Deriving from Grice's account, as \newcite{Davis2014implicature} notes, ``Neo-Gricean theories have modified Grice's principles to some extent, and Relevance theories replace them with a principle of communicative efficiency. The problems for such principle-based theories include overgeneration, lack of determinacy, clashes, and the fact that speakers often have other goals." We add to this criticism by pointing out they also fail to give real-valued relevance measures to contributions, especially for answers to questions, though see \cite{HoughPurver2017Lattices} for one such approach in progress. In the current models the short polar answers `yes' and 'no' would have the same degree of relevance as Barb's actual answer above.
+While a literal interpretation of Barb's contribution would not permit it to be judged a relevant answer to Alan's question, the unspoken meaning that she cannot attend is recoverable. Deriving from Grice's account, as \newcite{Davis2014implicature} notes, ``Neo-Gricean theories have modified Grice's principles to some extent, and Relevance theories replace them with a principle of communicative efficiency. The problems for such principle-based theories include overgeneration, lack of determinacy, clashes, and the fact that speakers often have other goals." We add to this criticism the failure to give \textit{real-valued} relevance measures to contributions, especially for answers to questions, though see \cite{HoughPurver2017Lattices} for one such approach in progress. In the current models the short polar answers `yes' and `no' would have the same degree of relevance as Barb's actual answer above, which is unintuitive.
 
-So, with the problems of goal intention recognition and lack of real-valued judgements at the heart of relevance theories, we here explore some formal models agnostic to a theory of intention recognition, but follow the spirit of principle of least effort and maximising relevance in communication. To do this we look beyond classical logical approaches and move to relevance logic approaches. We furthermore explore how real-valued relevance measures of answers to questions could be incorporated in such a framework. We would want to have a model which would put a real value on the degree of relevance of the contribution if certain reasoning is applied to yield the unsaid meaning and implicature.
+
+\section{Implicature with relevance logic}
+
+Here we explore some formal models of relevance agnostic to a theory of intention recognition, but which maintain the principle of least effort and maximising relevance in communication. To do this we look beyond classical logical approaches and move to a \textit{relevance logic} approach. We furthermore explore how real-valued relevance measures of answers to questions could be incorporated into such a framework through lattice theory. We are aiming for a model which would put a real value on the degree of relevance of the contribution if certain reasoning is applied to yield the unsaid meaning and implicature.
 
 
 
@@ -137,30 +142,59 @@ So, with the problems of goal intention recognition and lack of real-valued judg
 
 
 
-Relevance in this setting is understood as ensuring every premise in a derivation is used. This has a connection in theoretical computer science to relevant type systems \cite{walker2005substructural} and numerous engineering applications,e.g. \cite{cheng2004temporal} or \cite{Bruns:2011:ACV:1952982.1952991}. We illustrate this below. 
+Relevance in relevance logics is understood as ensuring every premise in a derivation is used in a proof. This has a connection in theoretical computer science to relevant type systems \cite{walker2005substructural} and numerous engineering applications,e.g. \cite{cheng2004temporal} or \cite{Bruns:2011:ACV:1952982.1952991}. %We illustrate this below. 
 %\par Relevance logics, viewed independent of their algebraic semantics, have a special logical and proof-theoretic significance: they are $\it{substructural}$ $\it{logics}$, in that they result from viewing propositions and their proofs in a system as resources. Indeed, the Relevance logic $R$ arises from classical sequent calculus by removing the weakening rule \cite{paoli2013substructural} in analogous way to Linear Logic being the result of removing contraction and weakening from the classical Gentzen sequent system. 
 
-\section{An implicature example using a relevance logic}
-Given (\ref{eg:griceparty}) and the availability of a general rule that may be available as a resource/reasoning pattern a speaker would have available to them like (\ref{def:workpartyexclusion}). we have rule which tells us when someone is working they can't attend a party (fairly reasonable consideration for most, unless one works in e.g catering, clown acts, etc). One cites the rule, and then concludes Barb can't go to the party at that time. In the spirit of \cite{Breitholtz2014}, we can derive a proof of the implicature that Barb's contribution can resolve the question using \cite{Mares2004}'s logical notation where the curly brackets indicate the premises used to derive the conclusion in Fig.~\ref{fig-relevancelogic}.
+In our example (\ref{eg:griceparty}) we assume Alan and Barb would both have access to a general reasoning rule that may be available as a resource or reasoning pattern like (\ref{def:workpartyexclusion}).
 
+\vspace*{-0.5cm}
 \begin{align}
     \label{def:workpartyexclusion}  \text{X is working at time }T \rightarrow \nonumber \\
     \neg\text{ X can go to a party at time }T\nonumber \\
     \textit{(work-party exclusion rule)}
 \end{align}
+\vspace*{-0.5cm}
 
+This rule tells us when someone is working they cannot attend a party (fairly reasonable consideration for most, unless one works in e.g catering, clown acts, etc.). With this rule to hand, in the spirit of \cite{Breitholtz2014}, we can derive a proof of the implicature that Barb cannot go to the party at that time which can resolve Alan's question, as shown in Fig.~\ref{fig-relevancelogic}. We use \newcite{Mares2004}'s logical notation where the curly brackets containing the indices of the premises used in that line. The proof in Fig.~\ref{fig-relevancelogic} shows how both premises are used to derive the conclusion in line 4, which itself uses the implicature in line 3.
 
-The proof in Fig.~\ref{fig-relevancelogic} shows how both premises can be used to derive the conclusion in 4, which uses the implicature in 3. We are given as an initial question whether at a given time Barb can go to a party. We are also given that Barb is working at that time.
-
-The problem here is that the initial question or premise is irrelevant to the proof. Indeed, all we need to obtain 3 is the work-party exclusion rule and 2.
+While this seems better than a classical logic approach because redundancy is minimized, the problem remains that we still don't have a handle on a real-valued relevance which could lead to a computational model of selecting relevant rules.
 
 \section{Towards Relevance Logic Lattices for Real-valued Relevance}
 
-Bringing this discussion full circle, this is exactly analogous to the issues with Knuth's analysis of questions and answers. In Knuth's analysis, such questions trivially evaluate to $\top$ as any statement and it's negation result in a triviality ($\top$ or $\bot$ respectively). Indeed, $\top$ in Knuth's analysis is co-extensive with the entire space of questions and answers, which is counter-intuitive for any question with any content that does not involve asking whether something is true or false. Adopting a different underlying algebra helps block these issues, and seems to capably model relevance both as a conversational implicature and as a logical consequence relation.  
+
+
+
+
+To model the real-valued relevance of answers to questions and implicatures, we look to work by \newcite{knuth2005lattice} and \cite{HoughPurver2017Lattices} whereby a boolean algebra statement lattice like that in Fig.~\ref{fig:knuthlattice} in the Appendix allows real-valued probabilities to be assigned to the atoms of the lattice and then consequently to the joins of those elements. Questions are derived from this lattice as the joins of all the downsets of these elements. In such a framework in our example in Fig.~\ref{fig-relevancelogic}, a relevance value is contingent on the the real-valued inclusion of statement 3 in statement 2 on the lattice after the application of the `work-party exclusion rule'-- if this is sufficiently high, we could rule this a relevant application of the general rule in order to derive 4. 
+
+While this seems to give us what we want, a problem of relevance remains, but this time in terms of the available answers to questions: in Knuth's analysis, all questions can trivially evaluate to $\bot$. In fact $\top$ in Knuth's analysis is co-extensive with the entire space of questions and answers, which is counter-intuitive for any question with any content that does not involve asking whether something is true or false. We propose adopting a different underlying algebra which helps block these issues, and seems to capably model relevance both as a conversational implicature and as a logical consequence relation.  We believe this can be achieved through a De Morgan lattice like Fig.~\ref{fig:lattices} where the trivial results can be minimized and we can achieve a Relevant logic known as First-Degree Entailment (FDE). \cite{Belnap1977} and their collaborators \cite{anderson2017entailment} show how this can be achieved-- see Fig.~\ref{fig:fde} Appendix for an illustration.
+
+\begin{figure}[!t]
+\begin{center}
+
+\begin{tikzpicture}
+  \node (max) at (0,4) {$\neg(\bot) = \top$};
+  \node (a) at (-2,2) {$\neg(a)$};
+  \node (b) at (0,2) {$\neg(k)$};
+  \node (c) at (2,2) {$\neg(n)$};
+  \node (d) at (-2,0) {$\neg(a \lor k)$};
+  \node (e) at (0,0) {$\neg(a \lor n)$};
+  \node (f) at (2,0) {$\neg(k \lor n)$};
+  \node (min) at (0,-2) {$\neg(a \lor k \lor n) = \neg(\top) = \bot$};
+  \draw (min) -- (d) -- (a) -- (max) -- (b) -- (f)
+  (e) -- (min) -- (f) -- (c) -- (max)
+  (d) -- (b);
+  \draw[preaction={draw=white, -,line width=6pt}] (a) -- (e) -- (c);
+\end{tikzpicture}
+\end{center}
+\vspace*{-0.35cm}
+\caption{De Morgan lattice}\label{fig:lattices}
+\end{figure}
 
 \section{Future Work}
-In future work we would like to leverage the power of Knuth's question and statement lattices and the De Morgan lattices as described above for deriving a real-valued relevance of Barb's contribution to resolving the central issue. We only say that for now, this relevance is contingent on the the real valued inclusion of statement 3 in statement 2 after the application of the `work-party exclusion rule'-- if this is sufficiently high, we could rule this a relevant application of the general rule in order to derive 4.
-\par We have evidence that Knuth's approach can be generalised already, and De Morgan algebras are (in addition to being the backbone of FDE described above) commonly investigated in fuzzy logic circles; it  forms an adequate algebraic semantics for e.g. Lukasiewicz logic \cite{Nguyen:1996:FCF:235242}. 
+In future work we would like to leverage the power of Knuth's work on probability and information theory with question and statement lattices and the De Morgan lattices described above for deriving a real-valued relevance of a contribution resolving the central issue. We have evidence that Knuth's approach can be generalised and De Morgan algebras are, in addition to being the backbone of FDE described above, investigated in fuzzy logic circles-- for example forming an adequate algebraic semantics for a Lukasiewicz logic \cite{Nguyen:1996:FCF:235242}. 
+
+
 
 \iffalse
 \section{Algebras for Questions}
@@ -244,14 +278,41 @@ De Morgan algebras have been studied at least since \cite{10.2307/1993112} as al
 
 
 %\newpage
+\begingroup
+\sloppy
 
 \bibliographystyle{acl_natbib}
 \bibliography{refs} 
-
+\endgroup
 \appendix
 
-\section{Appendix}
+
+\newpage
+\section*{Appendix}
 \label{sec:appendix}
+
+
+\begin{figure}[!h]
+\begin{center}
+\begin{tikzpicture}
+  \node (max) at (0,4) {$a \lor k \lor n = \top$};
+  \node (a) at (-2,2) {$a \lor k$};
+  \node (b) at (0,2) {$a \lor n$};
+  \node (c) at (2,2) {$k \lor n$};
+  \node (d) at (-2,0) {$a$};
+  \node (e) at (0,0) {$k$};
+  \node (f) at (2,0) {$n$};
+  \node (min) at (0,-2) {$\bot$};
+  \draw (min) -- (d) -- (a) -- (max) -- (b) -- (f)
+  (e) -- (min) -- (f) -- (c) -- (max)
+  (d) -- (b);
+  \draw[preaction={draw=white, -,line width=6pt}] (a) -- (e) -- (c);
+\end{tikzpicture}
+
+\end{center}
+\caption{A Knuth-style lattice of statements for a Boolean algebra}\label{fig:knuthlattice}
+\end{figure}
+
 
 \begin{figure}[!h]
 \begin{minipage}{.35\textwidth}
@@ -313,7 +374,7 @@ De Morgan algebras have been studied at least since \cite{10.2307/1993112} as al
     %
 \end{minipage} 
 \caption{FDE}
-\label{table-fde-logic}
+\label{fig:fde}
 \end{figure}
 
 
