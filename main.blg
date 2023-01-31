@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: acl_natbib.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: refs.bib
+Warning--I'm ignoring HoughPurver2017Lattices's extra "author" field
+--line 42 of file refs.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--can't use both author and editor fields in Belnap1977
+Warning--missing school in Breitholtz2014
+Warning--can't use both volume and number fields in cheng2004temporal
+You've used 13 entries,
+            3571 wiz_defined-function locations,
+            784 strings with 7452 characters,
+and the built_in function-call counts, 8159 in all, are:
+= -- 751
+> -- 256
+< -- 18
++ -- 84
+- -- 67
+* -- 442
+:= -- 1235
+add.period$ -- 55
+call.type$ -- 13
+change.case$ -- 87
+chr.to.int$ -- 13
+cite$ -- 16
+duplicate$ -- 554
+empty$ -- 689
+format.name$ -- 100
+if$ -- 1851
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 105
+newline$ -- 68
+num.names$ -- 54
+pop$ -- 230
+preamble$ -- 1
+purify$ -- 73
+quote$ -- 0
+skip$ -- 474
+stack$ -- 0
+substring$ -- 326
+swap$ -- 253
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 102
+warning$ -- 3
+while$ -- 59
+width$ -- 0
+write$ -- 171
+(There were 4 warnings)
